@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>daftar buku</title>
+</head>
+<style>
+	table,tr,td{
+		position: middle;
+		border: 1px solid grey;
+		background-color: #eee;
+		text-align: center;
+	}
+</style>
+
+<body>
+	<center><table>
+		<tr>
+			<td>Judul Buku</td>
+			<td>Pengarang</td>
+			<td>Penerbit</td>
+			<td>Tahun Terbit</td>
+			<td>Tindakan</td>
+		</tr>
+		@foreach($buku as $value)
+        <tr>
+        	<td>{{$value->judul_buku}}</td>
+        	<td>{{$value->pengarang}}</td>
+        	<td>{{$value->penerbit}}</td>
+            <td>{{$value->tahun_terbit}}</td>
+            <td><a href="{{url('/destroy/'.$value->id)}}">Hapus</a> || 
+            <a href="{{url('/up/'.$value->id)}}">Edit</a></td>
+        </tr>
+        @endforeach
+        <tr>
+        	<td colspan="5"><a href="{{url('/add')}}">Tambah</a></td>
+        </tr>
+        </table></center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit data Buku</title>
+</head>
+<body>
+	<form action="{{url('/update')}}" method="post"> {{csrf_field()}}
+		<center><table>
+			<input type="hidden" name="id" value="{{$value->id}}">
+			<tr>
+				<td>Judul Buku</td>
+				<td><input type="text" name="judul" value="{{$value->judul_buku}}"></td>
+			</tr>
+			<tr>
+				<td>Pengarang</td>
+				<td><input type="text" name="pengarang" value="{{$value->pengarang}}"></td>
+			</tr>
+			<tr>
+				<td>Penerbit</td>
+				<td><input type="text" name="penerbit" value="{{$value->penerbit}}"></td>
+			</tr>
+			<tr>
+				<td>Tahun Terbit</td>
+				<td><input type="text" name="thn" value="{{$value->tahun_terbit}}"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" name="save" value="Simpan"></td>
+			</tr>
+		</table></center>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tambah data</title>
+</head>
+<body>
+	<form action="{{route('buku.store')}}" method="post"> {{csrf_field()}}
+		<center><table>
+			<tr>
+				<td>Judul Buku</td>
+				<td><input type="text" name="judul"></td>
+			</tr>
+			<tr>
+				<td>Pengarang</td>
+				<td><input type="text" name="pengarang"></td>
+			</tr>
+			<tr>
+				<td>Penerbit</td>
+				<td><input type="text" name="penerbit"></td>
+			</tr>
+			<tr>
+				<td>Tahun Terbit</td>
+				<td><input type="text" name="thn"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" name="add" value="Tambah"></td>
+			</tr>
+		</table></center>
+	</form>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tambah data</title>
+</head>
+<body>
+	<form action="{{route('buku.store')}}" method="post"> {{csrf_field()}}
+		<center><table>
+			<tr>
+				<td>Judul Buku</td>
+				<td><input type="text" name="judul"></td>
+			</tr>
+			<tr>
+				<td>Pengarang</td>
+				<td><input type="text" name="pengarang"></td>
+			</tr>
+			<tr>
+				<td>Penerbit</td>
+				<td><input type="text" name="penerbit"></td>
+			</tr>
+			<tr>
+				<td>Tahun Terbit</td>
+				<td><input type="text" name="thn"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" name="add" value="Tambah"></td>
+			</tr>
+		</table></center>
+	</form>
+</body>
+</html>
